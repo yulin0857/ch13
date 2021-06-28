@@ -7,7 +7,7 @@ fun main() {
     //val isImmortal = false
 
 
-    val player= Player("Madrigal", 100, true, false)
+    val player= Player("Madrigal")
     player.castFireball(5)
 
     //aura
