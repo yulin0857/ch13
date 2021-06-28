@@ -7,24 +7,19 @@ class Player (_name: String,
               private val isImmortal: Boolean){
     var name = _name
         get() = "${field.capitalize()} of $hometown"
-        //get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
         private set(value){
             field = value.trim()
         }
-    val hometown=selectHometown()
 
-    private fun selectHometown()=File("data/towns.txt")
-        .readText()
-        .split("\n")
-        .shuffled()
-        .first()
+    val hometown by lazy { selectHometown() }
 
     init {
-        require(healthPoints>0,{"健康點數需大於0。"})
-        require(name.isNotBlank(),{"玩家一定要有名字。"})
+        require(healthPoints > 0,{"健康點數需大於0。"})
+        require(name.isNotBlank(), {"玩家一定要有名字。"})
     }
 
     constructor(name: String): this(name,
+        healthPoints = 100,
         isBlessed = true,
         isImmortal=false)
     {
@@ -71,5 +66,11 @@ class Player (_name: String,
 
     fun castFireball(numFireballs: Int=2)=
         println("橫空出現一杯火球.(x$numFireballs)")
+
+    private fun selectHometown()=File("data/towns.txt")
+        .readText()
+        .split("\r\n")
+        .shuffled()
+        .first()
 
 }
