@@ -1,13 +1,24 @@
+
+import java.io.File
+
 class Player (_name: String,
               var healthPoints: Int=100,
               val isBlessed: Boolean,
               private val isImmortal: Boolean){
     var name = _name
-        get() = field.capitalize()
+        get() = "${field.capitalize()} of $hometown"
         //get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
         private set(value){
             field = value.trim()
         }
+    val hometown=selectHometown()
+
+    private fun selectHometown()=File("data/towns.txt")
+        .readText()
+        .split("\n")
+        .shuffled()
+        .first()
+
     init {
         require(healthPoints>0,{"健康點數需大於0。"})
         require(name.isNotBlank(),{"玩家一定要有名字。"})
