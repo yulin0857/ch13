@@ -8,6 +8,10 @@ class Player (_name: String,
         private set(value){
             field = value.trim()
         }
+
+    constructor(name: String): this(name,
+    healthPoints=100, isBlessed = true, isImmortal=false
+    )
     //val healthPoints = _healthPoints
     //var isBlessed = _isBlessed
     //private val isImmortal = _isImmortal
