@@ -1,13 +1,16 @@
-class Player {
-    var name = "madrigal"
+class Player (_name: String,
+              _healthPoints: Int,
+              _isBlessed: Boolean,
+              _isImmortal: Boolean){
+    var name = _name
         get() = field.capitalize()
         //get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
         private set(value){
             field = value.trim()
         }
-    val healthPoints = 89
-    var isBlessed = true
-    private val isImmortal = false
+    val healthPoints = _healthPoints
+    var isBlessed = _isBlessed
+    private val isImmortal = _isImmortal
 
 
     fun auraColor():String
