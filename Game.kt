@@ -1,4 +1,3 @@
-/*習題3.7*/
 
 const val MAX_EXPERIENCE: Int =5000
 fun main() {
@@ -7,7 +6,8 @@ fun main() {
     //var isBlessed = true
     //val isImmortal = false
 
-    val player= Player("Madrigal")
+
+    val player= Player("Madrigal", 100, true, false)
     player.castFireball(5)
 
     //aura

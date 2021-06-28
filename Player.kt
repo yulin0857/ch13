@@ -1,5 +1,5 @@
 class Player (_name: String,
-              var healthPoints: Int,
+              var healthPoints: Int=100,
               val isBlessed: Boolean,
               private val isImmortal: Boolean){
     var name = _name
@@ -8,9 +8,14 @@ class Player (_name: String,
         private set(value){
             field = value.trim()
         }
+    init {
+        require(healthPoints>0,{"健康點數需大於0。"})
+        require(name.isNotBlank(),{"玩家一定要有名字。"})
+    }
 
     constructor(name: String): this(name,
-    healthPoints = 100,isBlessed = true, isImmortal=false)
+        isBlessed = true,
+        isImmortal=false)
     {
         if(name.toLowerCase() == "kar")healthPoints = 40
     }
