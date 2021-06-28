@@ -10,8 +10,11 @@ class Player (_name: String,
         }
 
     constructor(name: String): this(name,
-    healthPoints=100, isBlessed = true, isImmortal=false
-    )
+    healthPoints = 100,isBlessed = true, isImmortal=false)
+    {
+        if(name.toLowerCase() == "kar")healthPoints = 40
+    }
+
     //val healthPoints = _healthPoints
     //var isBlessed = _isBlessed
     //private val isImmortal = _isImmortal
